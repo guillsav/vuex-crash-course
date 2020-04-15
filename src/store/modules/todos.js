@@ -33,7 +33,7 @@ const actions = {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
     )
-    commit("limitTodos", response.data)
+    commit("setTodos", response.data)
   },
 }
 
@@ -42,7 +42,6 @@ const mutations = {
   newTodo: (state, todo) => state.todos.unshift(todo),
   removeTodo: (state, id) =>
     (state.todos = state.todos.filter((todo) => todo.id !== id)),
-  limitTodos: (state, todos) => (state.todos = todos),
 }
 
 export default {
